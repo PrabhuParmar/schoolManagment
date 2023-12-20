@@ -13,7 +13,6 @@ export class AddEditUserComponent implements OnDestroy, OnInit {
   schoolNameList: string[] = [];
   searchValue: string = '';
   setSubmitBtnMode: boolean = false;
-
   constructor(private userSerice: UserService, private setValidationService: ValidationService, private router: Router) {
     this.schoolNameList = userSerice.schoolNameList;
   }
@@ -85,11 +84,12 @@ export class AddEditUserComponent implements OnDestroy, OnInit {
     };
     this.setSubmitBtnMode = false;
     this.userFormDetails.reset();
-    this.searchValue = ''
+    this.searchValue = '';
     this.userFormDetails.patchValue({
       role: 'student',
       gender: 'male',
     });
     this.checkUserRole('student');
   };
+
 };

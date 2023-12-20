@@ -17,4 +17,4 @@ export class SetHeaderService {
     this.loggedIn?.next(false);
     localStorage.setItem('loginStatus', 'false');
   };
-}
+};

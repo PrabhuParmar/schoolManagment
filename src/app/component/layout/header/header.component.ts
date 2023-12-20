@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { SetHeaderService } from '../service/set-header.service';
 import { Subscription } from 'rxjs';
 import { AuthenticationService } from '../../authentication/service/authentication.service';
@@ -14,17 +14,15 @@ export class HeaderComponent implements OnDestroy {
   subscription: Subscription | any;
   constructor(private setNavbarService: SetHeaderService, private setAuthenticationService: AuthenticationService) {
     this.subscription = setNavbarService.loggedIn?.subscribe((data) => {
-      this.showNavBar = data
+      this.showNavBar = data;
     });
-  }
+  };
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe()
-  }
+    this.subscription.unsubscribe();
+  };
 
   onLogout = () => {
-    localStorage.setItem('loginStatus', 'false')
-  }
-
-
-}
+    localStorage.setItem('loginStatus', 'false');
+  };
+};

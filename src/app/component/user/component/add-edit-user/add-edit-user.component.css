@@ -110,6 +110,7 @@
      flex-direction: column;
  }
 
+
  @media screen and (max-width:992px) {
      .userFormSection .form-container .form-gender {
          flex-direction: row;

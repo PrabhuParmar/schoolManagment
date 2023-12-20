@@ -10,11 +10,11 @@ export class ValidationService {
   // password Validation 
   PasswordStrengthValidator = (control: AbstractControl) => {
     let value: string = control.value || '';
-    var pattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/
-    let special = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])/
-    let number = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$%^&*-])/
-    let lowerCase = /^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/
-    let upperCase = /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/
+    var pattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;
+    let special = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])/;
+    let number = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$%^&*-])/;
+    let lowerCase = /^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;
+    let upperCase = /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;
 
     return special.test(value) == true || number.test(value) == true || lowerCase.test(value) == true || upperCase.test(value) == true || pattern.test(value) == true ? null : { passwordStrength: true }
   };
@@ -39,7 +39,6 @@ export class ValidationService {
   // school Name validation 
   setSchoolName = (control: AbstractControl) => {
     const schoolNameList = this.userService.schoolNameList.find((user) => user === control.value);
-    return schoolNameList ? null : { onSchoolNameCheck: true }
-  }
-
-}
+    return schoolNameList ? null : { onSchoolNameCheck: true };
+  };
+};

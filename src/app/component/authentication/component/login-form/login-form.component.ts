@@ -16,12 +16,12 @@ export class LoginFormComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.navBarService.login();
-  }
+  };
   ngOnInit(): void {
-    localStorage.removeItem('loginStatus')
-    sessionStorage.removeItem('login')
+    localStorage.removeItem('loginStatus');
+    sessionStorage.removeItem('login');
     this.navBarService.logOut();
-  }
+  };
   // set Login Form Data 
   loginFormData: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,40}$')]),
@@ -31,16 +31,12 @@ export class LoginFormComponent implements OnInit, OnDestroy {
   // submit Login Data 
   submitLoginData = () => {
     this.toastService.success('successfully login')
-    this.generateRandomToken()
+    this.generateRandomToken();
     this.loginFormData.reset();
-  }
+  };
 
   // set Random Token 
   generateRandomToken = () => {
-    this.authenticationService.setRandomToken()
-  }
-
-
-
-
-}
+    this.authenticationService.setRandomToken();
+  };
+};

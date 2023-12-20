@@ -54,6 +54,13 @@
     color: var(--primary-aqua);
 }
 
+.login-form-section .login-container .submit-btn:disabled {
+    cursor: not-allowed;
+    pointer-events: all !important;
+    background-color: var(--primary-aqua);
+    color: var(--primary-white);
+}
+
 .login-form-section .login-form-image {
     height: 100vh;
     width: 100%;

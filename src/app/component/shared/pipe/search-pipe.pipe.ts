@@ -5,8 +5,10 @@ import { UserInterFace } from '../interFace/user-inter-face';
   name: 'searchPipe'
 })
 export class SearchPipePipe implements PipeTransform {
+  // find school name 
   transform(value: UserInterFace | any, ...args: string[]) {
     let [searchValue] = args;
+
     if (searchValue == null) {
       searchValue = '';
     };
