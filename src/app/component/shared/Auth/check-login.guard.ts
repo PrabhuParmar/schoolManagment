@@ -9,7 +9,7 @@ export const checkLoginGuard: CanActivateFn = (route, state) => {
   const _toastr = inject(ToastrService);
 
   if (loginStatus == 'false') {
-    _toastr.error('You are Not Login');
+    _toastr.error('Session Timeout! Please login again');
     routers.navigate(['login'])
     return false;
   } else {

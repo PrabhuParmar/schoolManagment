@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { UserInterFace } from '../interFace/user-inter-face';
+import { UserInterFace } from '../shared.model';
 
 @Pipe({
   name: 'searchPipe'

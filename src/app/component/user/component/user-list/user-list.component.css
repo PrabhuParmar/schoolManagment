@@ -78,17 +78,17 @@
 }
 
 .modal .modal-dialog .cancel-btn {
-    background-color: var(--primary-white);
-    color: var(--primary-aqua);
-    border: 2px solid var(--primary-aqua);
+    background-color: transparent;
+    color: var(--primary-black);
+    border: 2px solid var(--light-gray);
     cursor: pointer;
     font-weight: 600;
     padding: 9px 25px;
 }
 
 .modal .modal-dialog .cancel-btn:hover {
-    background-color: var(--primary-aqua);
-    color: var(--primary-white);
+    background-color: var(--light-gray);
+    color: var(--primary-black);
 }
 
 .modal .modal-dialog .delete-btn {

@@ -83,6 +83,14 @@
         width: 24px;
         height: 24px;
     }
+
+    .header-section .navbar .navbar-nav .nav-item .nav-menu {
+        margin-bottom: 5px;
+    }
+
+    .header-section .navbar .logout-btn {
+        margin-top: 25px;
+    }
 }
 
 @media screen and (max-width:300px) {

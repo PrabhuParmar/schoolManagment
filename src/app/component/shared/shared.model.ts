@@ -1,4 +1,3 @@
-// user InterFace 
 export interface UserInterFace {
     role: string;
     schoolName: string;

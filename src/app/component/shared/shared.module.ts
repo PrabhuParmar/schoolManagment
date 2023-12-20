@@ -3,10 +3,13 @@ import { CommonModule } from '@angular/common';
 import { SearchPipePipe } from './pipe/search-pipe.pipe';
 import { SortingTableDataPipe } from './pipe/sorting-table-data.pipe';
 
+
+
 @NgModule({
   declarations: [
     SearchPipePipe,
-    SortingTableDataPipe
+    SortingTableDataPipe,
+
   ],
   imports: [
     CommonModule

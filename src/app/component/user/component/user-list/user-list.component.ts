@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { UserService } from '../../service/user.service';
-import { UserInterFace } from 'src/app/component/shared/interFace/user-inter-face';
+import { UserInterFace } from '../../../shared/shared.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,6 +14,7 @@ export class UserListComponent implements OnDestroy {
   setSortingIconSrc: string = '../../../../../assets/image/arrows.png';
   setSortingStatus!: boolean;
   setSortingKeyName: string = '';
+  setRoleData: string = 'student';
 
   constructor(private userService: UserService, private route: Router) {
     this.userList = userService.userList;
@@ -32,8 +33,8 @@ export class UserListComponent implements OnDestroy {
   };
   // filter role user data 
   filterUserListRoleWise = (event: string | any) => {
-    let setRoleData = event.target.value;
-    this.userService.setUserRole(setRoleData);
+    this.setRoleData = event.target.value;
+    this.userService.setUserRole(this.setRoleData);
   };
   // confirmation delete 
   deleteDetails = () => {
@@ -44,6 +45,7 @@ export class UserListComponent implements OnDestroy {
     this.userService.editUserData(id);
     this.route.navigate(['/add-edit-user']);
   };
+
   // set sorting Icon 
   setSortingUserData = (sorting: string) => {
     this.setSortingKeyName = sorting;

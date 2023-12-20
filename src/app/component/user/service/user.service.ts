@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UserInterFace } from '../../shared/interFace/user-inter-face';
+import { UserInterFace } from '../../shared/shared.model';
 import { Subject } from 'rxjs';
 
 @Injectable({

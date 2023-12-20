@@ -4,16 +4,16 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'add-edit-user',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
     path: '',
-    loadChildren: () => import('./component/user/model/user.module').then(mod => mod.UserModule),
+    loadChildren: () => import('./component/user/module/user.module').then(mod => mod.UserModule),
   },
   {
     path: 'login',
-    loadChildren: () => import('./component/authentication/model/authentication.module').then(mod => mod.AuthenticationModule)
+    loadChildren: () => import('./component/authentication/module/authentication.module').then(mod => mod.AuthenticationModule)
   },
 
 ];

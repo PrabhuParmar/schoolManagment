@@ -1,7 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { SetHeaderService } from '../service/set-header.service';
 import { Subscription } from 'rxjs';
-import { AuthenticationService } from '../../authentication/service/authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -9,10 +8,9 @@ import { AuthenticationService } from '../../authentication/service/authenticati
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnDestroy {
-
   showNavBar: boolean = true;
   subscription: Subscription | any;
-  constructor(private setNavbarService: SetHeaderService, private setAuthenticationService: AuthenticationService) {
+  constructor(private setNavbarService: SetHeaderService) {
     this.subscription = setNavbarService.loggedIn?.subscribe((data) => {
       this.showNavBar = data;
     });

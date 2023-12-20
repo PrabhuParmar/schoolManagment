@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserService } from '../../service/user.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ValidationService } from 'src/app/component/shared/config/validation.service';
+import { ValidationService } from 'src/app/component/shared/service/validation.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -76,12 +76,8 @@ export class AddEditUserComponent implements OnDestroy, OnInit {
 
   // submit user Details 
   submitUserDetails = () => {
-    if (this.setSubmitBtnMode == false) {
-      this.userSerice.setUserFormDetails(this.userFormDetails.value);
-    } else {
-      this.router.navigate(['/user-list']);
-      this.userSerice.updateStudentDetails(this.userFormDetails.value);
-    };
+    this.setSubmitBtnMode == false ? this.userSerice.setUserFormDetails(this.userFormDetails.value) : this.userSerice.updateStudentDetails(this.userFormDetails.value)
+    this.router.navigate(['/user-list']);
     this.setSubmitBtnMode = false;
     this.userFormDetails.reset();
     this.searchValue = '';

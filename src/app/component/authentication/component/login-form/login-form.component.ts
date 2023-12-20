@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { SetHeaderService } from 'src/app/component/layout/service/set-header.service';
-import { ValidationService } from 'src/app/component/shared/config/validation.service';
+import { ValidationService } from 'src/app/component/shared/service/validation.service';
 import { AuthenticationService } from '../../service/authentication.service';
 
 @Component({

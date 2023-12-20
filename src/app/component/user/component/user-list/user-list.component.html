@@ -23,8 +23,8 @@
                     <option value="" selected>All</option>
                 </select>
             </div>
-            <div
-                class=" col-xl-2 col-lg-3 col-md-3 col-sm-4 col-12 mb-3 d-flex justify-content-center align-items-center">
+            <div class=" col-xl-2 col-lg-3 col-md-3 col-sm-4 col-12 mb-3 d-flex justify-content-center align-items-center"
+                *ngIf="setRoleData == 'student'">
                 <label for="" class="me-3">Semester</label>
                 <select class="form-select form-control select-input student-field-input"
                     (change)="setSemester($event)">
@@ -74,14 +74,17 @@
                         <th scope="col">
                             <span class="d-flex justify-content-start table-field table-title-data">Gender</span>
                         </th>
-                        <th scope="col" class=" table-field"><span
+                        <th scope="col" class=" table-field" *ngIf="setRoleData == 'student'"><span
                                 class="d-flex justify-content-center table-field table-title-data">Semester</span></th>
                         <th scope="col" class=" table-field"><span
                                 class="d-flex justify-content-center table-field table-title-data">Standard</span></th>
-                        <th scope="col" class=" table-field"><span
-                                class="d-flex justify-content-start table-field table-title-data">Medium</span></th>
-                        <th scope="col" class=" table-title-data table-qualification">Subject</th>
-                        <th class="table-qualification table-title-data">Qualification</th>
+                        <th scope="col" class=" table-field" *ngIf="setRoleData == 'student'">
+                            <span class="d-flex justify-content-start table-field table-title-data">Medium</span>
+                        </th>
+                        <th scope="col" class=" table-title-data table-qualification" *ngIf="setRoleData == 'faculty'">
+                            Subject</th>
+                        <th class="table-qualification table-title-data" *ngIf="setRoleData == 'faculty'">Qualification
+                        </th>
 
                         <th class="table-qualification"><span
                                 class="d-flex justify-content-start table-field table-title-data"> Qr Code</span> </th>
@@ -106,15 +109,17 @@
                                 date:"dd MMM yyyy"}}</span> </td>
                         <td><span class="d-flex justify-content-start table-field table-data">{{user.gender}}</span>
                         </td>
-                        <td><span class="d-flex justify-content-center table-field table-data">{{user.semester}}</span>
+                        <td *ngIf="setRoleData == 'student'"><span
+                                class="d-flex justify-content-center table-field table-data">{{user.semester}}</span>
                         </td>
                         <td><span class="d-flex justify-content-center table-field table-data">{{user.standard}}</span>
                         </td>
-                        <td><span class="d-flex justify-content-start table-field table-data badge text-bg-dark"
-                                *ngIf="user.medium">{{user.medium}}</span>
+                        <td *ngIf="setRoleData == 'student'"><span
+                                class="d-flex justify-content-start table-field table-data badge text-bg-dark">{{user.medium}}</span>
                         </td>
-                        <td class="table-qualification">{{user.subject}}</td>
-                        <td class="table-qualification table-data">{{user.qualification}}</td>
+                        <td class="table-qualification" *ngIf="setRoleData == 'faculty'">{{user.subject}}</td>
+                        <td class="table-qualification table-data" *ngIf="setRoleData == 'faculty'">
+                            {{user.qualification}}</td>
                         <td>
                             <qrcode qrdata="'{{user.id}}'" [width]="75" class="qr-code-img"
                                 *ngIf="user.qrCodeStatus == true"></qrcode>
