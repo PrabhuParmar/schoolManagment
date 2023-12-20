@@ -1,0 +1,39 @@
+<!-- Header start  -->
+<div class="header-section" *ngIf="showNavBar">
+    <nav class="navbar  navbar-expand-md ">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-center align-items-center">
+                <a class="navbar-brand navbar-title">School Managment</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item mx-2 mx-md-3 my-3  my-md-0 ">
+                            <a class="nav-link item-menu nav-menu" routerLink="add-edit-user"
+                                routerLinkActive="active-menu"> add user</a>
+                        </li>
+                        <li class="nav-item mx-2 mx-md-3 my-3  my-md-0">
+                            <a class="nav-link item-menu nav-menu" routerLink="user-list"
+                                routerLinkActive="active-menu">
+                                list user
+                            </a>
+                        </li>
+                        <button class="btn logout-btn" routerLink="login" (click)="onLogout()">Logout</button>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+</div>
+<!-- Header End  -->

@@ -1,0 +1,129 @@
+ /* add/edit user css start  */
+ .userFormSection {
+     min-height: calc(100vh - 66px);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .userFormSection .form-container .form-error {
+     color: var(--primary-red);
+ }
+
+ .userFormSection .form-container .dropdown-menu {
+     width: 100%;
+     cursor: pointer;
+ }
+
+ .userFormSection .form-container .form-title-data {
+     color: var(--primary-black);
+     font-size: 35px;
+     font-weight: 600;
+ }
+
+ .userFormSection .form-container .user-form {
+     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+     padding: 20px;
+     padding-top: 0;
+     background-color: var(--primary-white);
+     border-radius: 10px;
+
+ }
+
+ .userFormSection .form-container .form-input:focus {
+     box-shadow: none;
+     border-color: var(--light-gray);
+ }
+
+ .userFormSection .form-container .form-item-section {
+     margin-top: 10px;
+ }
+
+ .userFormSection .form-container .form-label {
+     color: var(--primary-black);
+     font-weight: 600;
+     margin: 0;
+     margin-bottom: 7px;
+ }
+
+ .userFormSection .user-form-container .form-item-section {
+     margin-left: 0px;
+
+ }
+
+ .userFormSection .input-date[type="date"] {
+     position: relative;
+ }
+
+ .userFormSection .input-date[type="date"]::-webkit-calendar-picker-indicator {
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     width: auto;
+     height: auto;
+     color: transparent;
+     background: transparent;
+     cursor: text;
+ }
+
+ .userFormSection .form-container .check-input-lable {
+     font-weight: unset;
+ }
+
+ .userFormSection .form-container .form-check-input,
+ .userFormSection .form-container .form-select {
+     cursor: pointer;
+ }
+
+ /* button css */
+
+ .userFormSection .form-container .submit-btn {
+     background-color: var(--primary-aqua);
+     border: 2px solid var(--primary-aqua);
+     color: var(--primary-white);
+     cursor: pointer;
+     font-weight: 600;
+     padding: 9px 25px;
+ }
+
+ .userFormSection .form-container .submit-btn:hover {
+     background-color: var(--primary-white);
+     color: var(--primary-aqua);
+ }
+
+ .userFormSection .form-container .submit-btn:focus {
+     background-color: var(--primary-white);
+     color: var(--primary-aqua);
+ }
+
+ .userFormSection .form-container .submit-btn:disabled {
+     cursor: not-allowed;
+     pointer-events: all !important;
+     background-color: var(--primary-aqua);
+     color: var(--primary-white);
+ }
+
+ .userFormSection .form-container .form-gender {
+     display: flex;
+     flex-direction: column;
+ }
+
+ @media screen and (max-width:992px) {
+     .userFormSection .form-container .form-gender {
+         flex-direction: row;
+     }
+
+     .userFormSection .form-container .gender-content {
+         margin-left: 10px;
+     }
+ }
+
+ @media screen and (max-width:360px) {
+     .userFormSection .form-container .user-form {
+         padding: 5px;
+     }
+ }
+
+ /* add/edit css End  */

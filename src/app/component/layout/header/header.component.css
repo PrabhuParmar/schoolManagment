@@ -1,0 +1,94 @@
+/* header css start  */
+.header-section {
+    background-color: var(--primary-white);
+}
+
+.header-section .navbar {
+    height: 66px;
+}
+
+.header-section .navbar .navbar-title {
+    color: var(--primary-gray);
+}
+
+.header-section .navbar .navbar-nav .nav-item .nav-menu {
+    position: relative;
+    cursor: pointer;
+    color: var(--primary-gray);
+    opacity: 0.8;
+    font-weight: 600;
+}
+
+.header-section .navbar .navbar-nav .nav-item .nav-menu:before {
+    position: absolute;
+    bottom: 0;
+    background: var(--primary-aqua);
+    height: 2px;
+    display: block;
+    content: "";
+    width: 0;
+    transition: 0.5s all ease-in;
+}
+
+.header-section .navbar .navbar-nav .nav-item .active-menu,
+.header-section .navbar .navbar-nav .nav-item .nav-menu:hover {
+    color: var(--primary-blue);
+    opacity: 1;
+}
+
+.header-section .navbar .navbar-nav .nav-item .nav-menu:hover:before {
+    width: 100%;
+}
+
+.header-section .navbar .navbar-nav .nav-item .nav-menu:before {
+    bottom: 0;
+    left: 0;
+}
+
+.header-section .navbar .logout-btn {
+    box-shadow: none;
+    border: 2px solid var(--primary-aqua);
+    background-color: var(--primary-aqua);
+    color: var(--primary-white);
+}
+
+.header-section .navbar .logout-btn:hover {
+    background-color: transparent;
+    color: var(--primary-aqua);
+}
+
+.header-section .navbar .logout-btn:focus {
+    box-shadow: none;
+}
+
+.header-section .navbar .navbar-toggler {
+    background-color: var(--primary-gray);
+}
+
+.header-section .navbar .navbar-toggler:focus {
+    box-shadow: none !important;
+}
+
+@media screen and (max-width:767.98px) {
+    .header-section .navbar .offcanvas {
+        background-color: var(--primary-white) !important;
+        width: 250px;
+    }
+
+    .header-section .navbar .btn-close:focus {
+        box-shadow: none !important;
+    }
+
+    .header-section .navbar .navbar-toggler-icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@media screen and (max-width:300px) {
+    .header-section .navbar .navbar-title {
+        font-size: 19px;
+    }
+}
+
+/* header css End  */

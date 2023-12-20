@@ -1,0 +1,152 @@
+/* user list css  */
+.user-list-section .user-data-section .table-school-name {
+    min-width: 200px;
+}
+
+.user-list-section .user-data-section .table-name,
+.user-list-section .user-data-section .table-id,
+.user-list-section .user-data-section .table-qualification {
+    min-width: 142px;
+}
+
+.user-list-section .user-data-section .table-email,
+.user-list-section .user-data-section .table-address {
+    min-width: 223px;
+}
+
+.user-list-section .user-data-section .table-field {
+    min-width: 100px;
+}
+
+.user-list-section .user-data-section .table-data {
+    word-break: break-all
+}
+
+.user-list-section .empty-message-section {
+    min-height: calc(100vh - 230px);
+}
+
+.user-list-section .empty-message {
+    color: var(--primary-black);
+    opacity: 0.8;
+}
+
+.user-list-section .user-data-section .action-img {
+    height: 20px;
+    margin-right: 17px;
+    cursor: pointer;
+}
+
+.user-list-section .user-data-section .badge {
+    font-weight: 500 !important;
+}
+
+.user-list-section .user-list-main-section .select-input {
+    cursor: pointer;
+    border-color: var(--primary-white);
+}
+
+.user-list-section .user-list-main-section .select-option {
+    cursor: pointer;
+}
+
+.user-list-section .user-list-main-section .select-input:focus {
+    box-shadow: none;
+    border-color: var(--primary-white);
+}
+
+.user-list-section .student-field-input {
+    width: 100px !important;
+}
+
+.user-list-section .sorting-icon {
+    height: 18px;
+    cursor: pointer;
+}
+
+.user-list-section .sorting-icon:hover {
+    opacity: 0.8;
+}
+
+/* set modal  */
+.modal {
+    --bs-modal-footer-border-width: none !important;
+}
+
+.modal .modal-dialog .cancel-btn {
+    color: var(--primary-aqua);
+}
+
+.modal .modal-dialog .cancel-btn {
+    background-color: var(--primary-white);
+    color: var(--primary-aqua);
+    border: 2px solid var(--primary-aqua);
+    cursor: pointer;
+    font-weight: 600;
+    padding: 9px 25px;
+}
+
+.modal .modal-dialog .cancel-btn:hover {
+    background-color: var(--primary-aqua);
+    color: var(--primary-white);
+}
+
+.modal .modal-dialog .delete-btn {
+    background-color: var(--light-red);
+    color: var(--primary-white);
+    border: 2px solid var(--light-red);
+    cursor: pointer;
+    font-weight: 600;
+    padding: 9px 25px;
+}
+
+.modal .modal-dialog .delete-btn:hover {
+    background-color: var(--primary-white);
+    color: var(--light-red);
+}
+
+.modal-header .btn-close {
+    box-shadow: none !important;
+}
+
+
+
+@media screen and (max-width:360px) {
+    .user-list-section .search-input::placeholder {
+        font-size: 09px;
+    }
+
+    .user-list-section .select-input {
+        height: 33px;
+    }
+
+    .container-fluid {
+        --bs-gutter-x: 5px !important;
+    }
+}
+
+@media screen and (min-width:361px) and (max-width:430px) {
+    .user-list-section .search-input::placeholder {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width:575.98px) {
+    .user-list-section .empty-message-section {
+        min-height: calc(100vh - 360px);
+    }
+
+    .user-list-section .student-field-input {
+        width: 100% !important;
+    }
+
+}
+
+@media screen and (min-width:576px) and (max-width:1199px) {
+    .user-list-section .empty-message-section {
+        min-height: calc(100vh - 270px);
+    }
+
+}
+
+/* user list css End  */

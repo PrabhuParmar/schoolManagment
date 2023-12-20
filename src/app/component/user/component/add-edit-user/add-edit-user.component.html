@@ -1,0 +1,261 @@
+<!-- user details Form start  -->
+<div class="userFormSection">
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center form-container">
+            <div class=" col col-12 col-sm-12 col-md-10 col-lg-11  user-form-container ">
+                <div class="d-flex justify-content-center form-title mb-3 mt-2">
+                    <h1 class="form-title-data"> {{setSubmitBtnMode== false ? ' Add' : 'Edit'}} User</h1>
+                </div>
+                <form class="user-form row g-3 py-2" [formGroup]="userFormDetails">
+                    <div class="col-lg-12 form-item-section d-flex align-items-end">
+                        <div class="d-flex ">
+                            <label class="form-label">Role <span class="form-error">*</span> </label>
+                            <div class="gender-content d-flex ms-3">
+                                <div class="form-check">
+                                    <input class="form-check-input   form-input" type="radio" name="role"
+                                        value="student" formControlName="role" (click)="checkUserRole('student')">
+                                    <label class="form-check-label form-label check-input-lable"
+                                        for="flexRadioDefault1">
+                                        Student
+                                    </label>
+                                </div>
+                                <div class="form-check ms-3">
+                                    <input class="form-check-input  form-input" type="radio" name="role"
+                                        formControlName="role" value="faculty" (click)="checkUserRole('faculty')">
+                                    <label class="form-check-label form-label check-input-lable"
+                                        for="flexRadioDefault2">
+                                        Faculty
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-2 form-item-section col-lg-6 d-flex flex-column align-items-stretch">
+                        <label class="form-label">School Name <span class="form-error">*</span></label>
+                        <div class="btn-group">
+                            <input type="text" class="form-control form-input dropdown-toggle" data-bs-toggle="dropdown"
+                                [(ngModel)]="searchValue" aria-expanded="false" formControlName="schoolName">
+                            <ul class="dropdown-menu">
+                                <span *ngFor="let data of schoolNameList | searchPipe:searchValue">
+                                    <li class="dropdown-item" (click)="setDropdownItemValue(data)">
+                                        {{data}} </li>
+                                </span>
+                            </ul>
+                        </div>
+                        <div class="form-text"
+                            *ngIf="!userFormDetails.get('schoolName')?.valid && userFormDetails.get('schoolName')?.touched">
+                            <span *ngIf="userFormDetails.get('schoolName')?.errors 
+                                && userFormDetails.get('schoolName')?.hasError('required')" class="form-error">
+                                School name is required!
+                            </span>
+                            <div
+                                *ngIf="userFormDetails.value.schoolName==null || userFormDetails.value.schoolName.length >0">
+                                <span *ngIf="userFormDetails.get('schoolName')?.errors &&
+                            userFormDetails.get('schoolName')?.hasError('onSchoolNameCheck')" class="form-error">
+                                    Please enter a valid school Name
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="mb-2 form-item-section col-lg-6">
+                        <label class="form-label">Name <span class="form-error">*</span> </label>
+                        <input type="text" class="form-control form-input" formControlName="name">
+                        <div class="form-text"
+                            *ngIf="!userFormDetails.get('name')?.valid && userFormDetails.get('name')?.touched">
+                            <span *ngIf="userFormDetails.get('name')?.errors 
+                            && userFormDetails.get('name')?.hasError('required') 
+                            || userFormDetails.get('name')?.hasError('checkNameValue')" class="form-error">
+                                Name is required!
+                            </span>
+                            <span
+                                *ngIf="userFormDetails.get('name')?.errors && userFormDetails.get('name')?.hasError('pattern')"
+                                class="form-error">
+                                Please enter valid name, only characters allowed
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mb-2 form-item-section col-lg-6">
+                        <label class="form-label">Email <span class="form-error">*</span> </label>
+                        <input type="email" class="form-control form-input" formControlName="email">
+                        <div class="form-text"
+                            *ngIf="!userFormDetails.get('email')?.valid && userFormDetails.get('email')?.touched">
+                            <span *ngIf="userFormDetails.get('email')?.errors 
+                            && userFormDetails.get('email')?.hasError('required') " class="form-error">
+                                Email is required!
+                            </span>
+                            <span
+                                *ngIf="userFormDetails.get('email')?.errors && userFormDetails.get('email')?.hasError('pattern')"
+                                class="form-error">
+                                Please enter a valid email address
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mb-2 form-item-section  col-lg-6">
+                        <label class="form-label">Phone Number <span class="form-error">*</span> </label>
+                        <input type="number" class="form-control form-input" formControlName="phoneNumber">
+                        <div class="form-text d-flex flex-column"
+                            *ngIf="!userFormDetails.get('phoneNumber')?.valid && userFormDetails.get('phoneNumber')?.touched">
+                            <span *ngIf="userFormDetails.get('phoneNumber')?.errors 
+                            && userFormDetails.get('phoneNumber')?.hasError('required')" class="form-error">
+                                Phone number is required!
+                            </span>
+                            <span
+                                *ngIf="userFormDetails.get('phoneNumber')?.errors && userFormDetails.get('phoneNumber')?.hasError('pattern')"
+                                class="form-error">
+                                Please enter a valid phone number, phone number must be 10 digits
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="mb-2 form-item-section  col-lg-6">
+                        <label class="form-label">DOB <span class="form-error">*</span> </label>
+                        <input type="date" class="form-control input-date form-input" formControlName="dob">
+                        <div class="form-text d-flex flex-column"
+                            *ngIf="!userFormDetails.get('dob')?.valid && userFormDetails.get('dob')?.touched">
+                            <span *ngIf="userFormDetails.get('dob')?.errors 
+                            && userFormDetails.get('dob')?.hasError('required') " class="form-error">
+                                DOB is required!
+                            </span>
+                            <span
+                                *ngIf="userFormDetails.get('dob')?.errors && userFormDetails.get('dob')?.hasError('setSelectedDate')"
+                                class="form-error">
+                                Please enter a valid date, you cannot enter a future date
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 form-item-section ">
+                        <div class=" form-gender">
+                            <label class="form-label">Gender <span class="form-error">*</span> </label>
+                            <div class="gender-content d-flex">
+                                <div class="form-check">
+                                    <input class="form-check-input form-input" type="radio" name="gender" value="male"
+                                        formControlName="gender">
+                                    <label class="form-check-label form-label check-input-lable"
+                                        for="flexRadioDefault1">
+                                        Male
+                                    </label>
+                                </div>
+                                <div class="form-check ms-3">
+                                    <input class="form-check-input form-input" type="radio" name="gender" value="female"
+                                        formControlName="gender">
+                                    <label class="form-check-label form-label check-input-lable"
+                                        for="flexRadioDefault2">
+                                        Female
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-2 form-item-section  col-lg-12">
+                        <label for="exampleFormControlTextarea1" class="form-label">Address <span
+                                class="form-error">*</span></label>
+                        <textarea class="form-control form-input" id="exampleFormControlTextarea1" rows="3"
+                            formControlName="address"></textarea>
+                        <div class="form-text d-flex flex-column"
+                            *ngIf="!userFormDetails.get('address')?.valid && userFormDetails.get('address')?.touched">
+                            <span
+                                *ngIf="userFormDetails.get('address')?.errors 
+                            && userFormDetails.get('address')?.hasError('required') || userFormDetails.get('address')?.hasError('checkNameValue') "
+                                class="
+                                form-error">
+                                Address is required!
+                            </span>
+
+                        </div>
+                    </div>
+                    <div class=" student-input-section col-12" *ngIf="userFormDetails.value.role=='student'">
+                        <div class="row">
+                            <div class="mb-3  form-item-section student-form-item  col-lg-4">
+                                <label class="form-label">Semester <span class="form-error">*</span> </label>
+                                <select class="form-select  form-input" aria-label="Default select example"
+                                    formControlName="semester">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div>
+                            <div class="mb-3  form-item-section student-form-item  col-lg-4  px-lg-3">
+                                <label class="form-label">Standard <span class="form-error">*</span> </label>
+                                <select class="form-select  form-input" aria-label="Default select example"
+                                    formControlName="standard">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                            <div class="mb-3  form-item-section student-form-item  col-lg-4">
+                                <label class="form-label">Medium <span class="form-error">*</span> </label>
+                                <select class="form-select  form-input" aria-label="Default select example"
+                                    formControlName="medium">
+                                    <option value="english">English</option>
+                                    <option value="gujarati">Gujarati</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faculty-input-section col-12" *ngIf="userFormDetails.value.role=='faculty'">
+                        <div class="row">
+                            <div class="mb-3  form-item-section student-form-item  col-lg-4">
+                                <label class="form-label">Subject <span class="form-error">*</span> </label>
+                                <select class="form-select  form-input" aria-label="Default select example"
+                                    formControlName="subject">
+                                    <option value="hindi">Hindi</option>
+                                    <option value="english">English</option>
+                                    <option value="gujrati">Gujrati</option>
+                                    <option value="science">Science</option>
+                                    <option value="social science">Social Science</option>
+                                    <option value="computer">Computer</option>
+                                </select>
+                            </div>
+                            <div class="mb-3  form-item-section student-form-item  col-lg-4 px-lg-3">
+                                <label class="form-label">Standard <span class="form-error">*</span> </label>
+                                <select class="form-select  form-input" aria-label="Default select example"
+                                    formControlName="standard">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                            <div class="mb-3  form-item-section student-form-item  col-lg-4 ">
+                                <label class="form-label">Qualification detail <span class="form-error">*</span>
+                                </label>
+                                <textarea class="form-control form-input" id="exampleFormControlTextarea1" rows="2"
+                                    formControlName="qualification"></textarea>
+                                <div class="form-text d-flex flex-column"
+                                    *ngIf="!userFormDetails.get('qualification')?.valid && userFormDetails.get('qualification')?.touched">
+                                    <span
+                                        *ngIf="userFormDetails.get('qualification')?.errors 
+                            && userFormDetails.get('qualification')?.hasError('required') || userFormDetails.get('qualification')?.hasError('checkNameValue')"
+                                        class="
+                                form-error">
+                                        Qualification details is required!
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-2 form-item-section  col-12">
+                        <input type="checkbox" class="form-check-input form-input" id="exampleCheck1"
+                            formControlName="qrCodeStatus">
+                        <label class="form-check-label ms-2 form-label" for="exampleCheck1"> generating QR
+                            Code</label>
+                    </div>
+                    <div class="btn-section d-flex justify-content-center my-2">
+                        <button type="button" class="btn submit-btn" (click)="submitUserDetails()"
+                            [disabled]="!userFormDetails.valid">
+                            {{setSubmitBtnMode== false ? 'Submit' : 'Update'}} </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- user details Form End  -->
