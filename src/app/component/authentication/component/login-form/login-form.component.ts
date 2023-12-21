@@ -4,6 +4,8 @@ import { ToastrService } from 'ngx-toastr';
 import { SetHeaderService } from 'src/app/component/layout/service/set-header.service';
 import { ValidationService } from 'src/app/component/shared/service/validation.service';
 import { AuthenticationService } from '../../service/authentication.service';
+import { Router } from '@angular/router';
+import { AnimationService } from 'src/app/component/shared/service/animation.service';
 
 @Component({
   selector: 'app-login-form',
@@ -11,8 +13,9 @@ import { AuthenticationService } from '../../service/authentication.service';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit, OnDestroy {
-  constructor(private validationService: ValidationService, private toastService: ToastrService,
-    private navBarService: SetHeaderService, private authenticationService: AuthenticationService) { }
+  animationShow: boolean = false;
+  constructor(private validationService: ValidationService, private toastService: ToastrService, private animation: AnimationService,
+    private navBarService: SetHeaderService, private authenticationService: AuthenticationService, private router: Router) { }
 
   ngOnDestroy(): void {
     this.navBarService.login();
@@ -30,11 +33,20 @@ export class LoginFormComponent implements OnInit, OnDestroy {
 
   // submit Login Data 
   submitLoginData = () => {
-    this.toastService.success('successfully login')
-    this.generateRandomToken();
-    this.loginFormData.reset();
+    this.animationShow = true;
+    setTimeout(() => {
+      this.animationShow = false;
+      this.router.navigate(['/user-list']);;
+      this.toastService.success('successfully login')
+      this.generateRandomToken();
+      this.loginFormData.reset();
+    }, 2000);
   };
 
+  // Animation path 
+  AnimationOptions = {
+    path: this.animation.animationPath
+  };
   // set Random Token 
   generateRandomToken = () => {
     this.authenticationService.setRandomToken();

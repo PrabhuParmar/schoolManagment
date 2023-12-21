@@ -251,8 +251,15 @@
                     <div class="btn-section d-flex justify-content-center my-2">
                         <button type="button" class="btn submit-btn" (click)="submitUserDetails()"
                             [disabled]="!userFormDetails.valid">
-                            {{setSubmitBtnMode== false ? 'Submit' : 'Update'}} </button>
+                            {{setSubmitBtnMode== false ? 'Submit' : 'Update'}}
+                            <span *ngIf="animationShow">
+                                <ng-lottie [options]="AnimationOptions"
+                                    class="d-flex justify-content-center loading-animation-img">
+                                </ng-lottie>
+                            </span>
+                        </button>
                     </div>
+
                 </form>
             </div>
         </div>

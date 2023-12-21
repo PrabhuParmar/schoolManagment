@@ -3,7 +3,11 @@ import { CommonModule } from '@angular/common';
 import { LoginFormComponent } from '../component/login-form/login-form.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { LottieModule } from 'ngx-lottie';
+// Export this function
+export function playerFactory(): any {
+  return import('lottie-web');
+}
 const routes: Routes = [
   {
     path: '',
@@ -18,7 +22,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    LottieModule.forRoot({ player: playerFactory }),
   ],
   exports: [
     RouterModule

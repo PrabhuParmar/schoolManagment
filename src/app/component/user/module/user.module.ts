@@ -8,7 +8,10 @@ import { UserService } from '../service/user.service';
 import { QRCodeModule } from 'angularx-qrcode';
 import { SharedModule } from '../../shared/shared.module';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { LottieModule } from 'ngx-lottie';
+export function playerFactory(): any {
+  return import('lottie-web');
+}
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
     QRCodeModule,
     NgbTooltipModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    LottieModule.forRoot({ player: playerFactory }),
 
   ]
 })

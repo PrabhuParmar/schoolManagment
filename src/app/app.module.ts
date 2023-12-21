@@ -9,6 +9,13 @@ import { HeaderComponent } from './component/layout/header/header.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './component/shared/shared.module';
+import { LottieModule } from 'ngx-lottie';
+
+// Export this function
+export function playerFactory(): any {
+  return import('lottie-web');
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +27,8 @@ import { SharedModule } from './component/shared/shared.module';
     NgbModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    SharedModule
+    SharedModule,
+    LottieModule.forRoot({ player: playerFactory }),
   ],
   providers: [],
   bootstrap: [AppComponent]

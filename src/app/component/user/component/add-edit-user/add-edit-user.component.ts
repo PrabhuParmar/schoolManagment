@@ -3,6 +3,7 @@ import { UserService } from '../../service/user.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ValidationService } from 'src/app/component/shared/service/validation.service';
 import { Router } from '@angular/router';
+import { AnimationService } from 'src/app/component/shared/service/animation.service';
 
 @Component({
   selector: 'app-add-edit-user',
@@ -13,7 +14,7 @@ export class AddEditUserComponent implements OnDestroy, OnInit {
   schoolNameList: string[] = [];
   searchValue: string = '';
   setSubmitBtnMode: boolean = false;
-  constructor(private userSerice: UserService, private setValidationService: ValidationService, private router: Router) {
+  constructor(private userSerice: UserService, private setValidationService: ValidationService, private router: Router, private animation: AnimationService) {
     this.schoolNameList = userSerice.schoolNameList;
   }
   ngOnInit(): void {
@@ -73,11 +74,11 @@ export class AddEditUserComponent implements OnDestroy, OnInit {
       standard: '1',
     });
   };
-
+  animationShow = false;
   // submit user Details 
   submitUserDetails = () => {
     this.setSubmitBtnMode == false ? this.userSerice.setUserFormDetails(this.userFormDetails.value) : this.userSerice.updateStudentDetails(this.userFormDetails.value)
-    this.router.navigate(['/user-list']);
+
     this.setSubmitBtnMode = false;
     this.userFormDetails.reset();
     this.searchValue = '';
@@ -86,6 +87,19 @@ export class AddEditUserComponent implements OnDestroy, OnInit {
       gender: 'male',
     });
     this.checkUserRole('student');
+
+
+    this.animationShow = true;
+    setTimeout(() => {
+      this.animationShow = false;
+      this.router.navigate(['/user-list']);
+    }, 2000);
   };
+
+  // Animation path 
+  AnimationOptions = {
+    path: this.animation.animationPath
+  };
+
 
 };

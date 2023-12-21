@@ -52,7 +52,13 @@
                     </div>
                     <div class="d-flex justify-content-center my-3">
                         <button type="button" class="btn submit-btn" (click)="submitLoginData()"
-                            [disabled]="!loginFormData.valid" routerLink="/user-list">Submit</button>
+                            [disabled]="!loginFormData.valid">Submit
+                            <span *ngIf="animationShow">
+                                <ng-lottie [options]="AnimationOptions"
+                                    class="d-flex justify-content-center loading-animation-img">
+                                </ng-lottie>
+                            </span>
+                        </button>
                     </div>
                 </form>
             </div>

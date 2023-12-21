@@ -98,6 +98,7 @@
     cursor: pointer;
     font-weight: 600;
     padding: 9px 25px;
+    position: relative;
 }
 
 .modal .modal-dialog .delete-btn:hover {
@@ -108,8 +109,6 @@
 .modal-header .btn-close {
     box-shadow: none !important;
 }
-
-
 
 @media screen and (max-width:360px) {
     .user-list-section .search-input::placeholder {

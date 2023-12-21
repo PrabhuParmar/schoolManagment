@@ -1,7 +1,8 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { UserService } from '../../service/user.service';
 import { UserInterFace } from '../../../shared/shared.model';
 import { Router } from '@angular/router';
+import { AnimationService } from 'src/app/component/shared/service/animation.service';
 
 @Component({
   selector: 'app-user-list',
@@ -10,13 +11,15 @@ import { Router } from '@angular/router';
 })
 export class UserListComponent implements OnDestroy {
   userList: UserInterFace[] = [];
+  @ViewChild('closeButton') closeButton!: ElementRef;
   deleteUserid!: number;
   setSortingIconSrc: string = '../../../../../assets/image/arrows.png';
   setSortingStatus!: boolean;
   setSortingKeyName: string = '';
   setRoleData: string = 'student';
+  animationShow: boolean = false;
 
-  constructor(private userService: UserService, private route: Router) {
+  constructor(private userService: UserService, private route: Router, private animation: AnimationService) {
     this.userList = userService.userList;
     userService.updatedUserListData.subscribe(
       (data: UserInterFace | any) => {
@@ -36,9 +39,16 @@ export class UserListComponent implements OnDestroy {
     this.setRoleData = event.target.value;
     this.userService.setUserRole(this.setRoleData);
   };
+
   // confirmation delete 
   deleteDetails = () => {
-    this.userService.onDeleteUserdetails(this.deleteUserid);
+    this.animationShow = true;
+    setTimeout(() => {
+      this.animationShow = false;
+      this.closeButton.nativeElement.click();
+      this.userService.onDeleteUserdetails(this.deleteUserid);
+    }, 2000);
+
   };
   // edit user 
   editUserDetails = (id: number | any) => {
@@ -64,4 +74,10 @@ export class UserListComponent implements OnDestroy {
   setSemester = (event: object | any) => {
     this.userService.setUserSemester(event.target.value);
   };
+
+  // Animation path 
+  AnimationOptions = {
+    path: this.animation.animationPath
+  };
+
 };

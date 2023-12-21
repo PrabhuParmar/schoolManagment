@@ -17,3 +17,41 @@ body {
     --primary-black: #000000ad;
     --light-red: #bd1818e3;
 }
+
+.loading-animation-img {
+    position: absolute;
+    height: -webkit-fill-available;
+    width: 64px;
+    top: 0px;
+    margin: 10px 0px;
+}
+
+.submit-btn {
+    background-color: var(--primary-aqua);
+    border: 2px solid var(--primary-aqua);
+    color: var(--primary-white);
+    cursor: pointer;
+    font-weight: 600;
+    padding: 9px 25px;
+    position: relative;
+}
+
+.submit-btn:hover {
+    background-color: var(--primary-white);
+    color: var(--primary-aqua);
+    border: 2px solid var(--primary-aqua);
+}
+
+.submit-btn:focus {
+    background-color: var(--primary-white);
+    color: var(--primary-aqua);
+    border: 2px solid var(--primary-aqua);
+}
+
+.submit-btn:disabled {
+    cursor: not-allowed;
+    pointer-events: all !important;
+    background-color: var(--primary-aqua);
+    color: var(--primary-white);
+    border: 2px solid var(--primary-aqua);
+}

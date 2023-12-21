@@ -128,7 +128,7 @@
                             <span class="d-flex justify-content-start align-items-center table-field table-data">
                                 <img src="../../../../../assets/image/icons8-edit-48.png" alt="" class="action-img"
                                     placement="top" ngbTooltip="Edit" (click)="editUserDetails(user.id)">
-                                <div data-bs-toggle="modal" data-bs-target="#setDeleteItem">
+                                <div data-bs-toggle="modal" data-bs-target="#setDeleteItem" #setModel>
                                     <img src="../../../../../assets/image/icons8-delete-64.png" alt=""
                                         class="action-img" placement="top" ngbTooltip="Delete"
                                         (click)="deleteUserDetails(user.id)">
@@ -148,25 +148,32 @@
 
 <!-- delete confirmation popup  -->
 <!-- Modal -->
-<div class="modal fade" id="setDeleteItem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="setDeleteItem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    data-backdrop="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">
                     Delete user
                 </h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    #closeButton></button>
             </div>
             <div class="modal-body">
                 Are you sure you want to delete user Details?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary cancel-btn" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn  delete-btn" (click)="deleteDetails()"
-                    data-bs-dismiss="modal">Confirm</button>
+                <button type="button" class="btn  delete-btn" (click)="deleteDetails()">Confirm
+                    <span *ngIf="animationShow">
+                        <ng-lottie [options]="AnimationOptions"
+                            class="d-flex justify-content-center loading-animation-img">
+                        </ng-lottie>
+                    </span></button>
             </div>
         </div>
     </div>
 </div>
+
 
 <!-- user list section End  -->

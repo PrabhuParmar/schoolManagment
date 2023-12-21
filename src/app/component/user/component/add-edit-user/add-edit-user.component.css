@@ -77,34 +77,6 @@
      cursor: pointer;
  }
 
- /* button css */
-
- .userFormSection .form-container .submit-btn {
-     background-color: var(--primary-aqua);
-     border: 2px solid var(--primary-aqua);
-     color: var(--primary-white);
-     cursor: pointer;
-     font-weight: 600;
-     padding: 9px 25px;
- }
-
- .userFormSection .form-container .submit-btn:hover {
-     background-color: var(--primary-white);
-     color: var(--primary-aqua);
- }
-
- .userFormSection .form-container .submit-btn:focus {
-     background-color: var(--primary-white);
-     color: var(--primary-aqua);
- }
-
- .userFormSection .form-container .submit-btn:disabled {
-     cursor: not-allowed;
-     pointer-events: all !important;
-     background-color: var(--primary-aqua);
-     color: var(--primary-white);
- }
-
  .userFormSection .form-container .form-gender {
      display: flex;
      flex-direction: column;
@@ -126,5 +98,7 @@
          padding: 5px;
      }
  }
+
+
 
  /* add/edit css End  */
